@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>FramedJS Demo</title>
+		<link href="std.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+			<h1>Label Demo</h1>
+		</header>
+		<main>
+			<aside class="cell">
+				<form id="demoForm">
+					<label for="maxLines">Max Lines</label>
+					<input name="maxLines" type="number" min="1" max="15" value="" placeholder="Max Lines" />
+
+					<label for="truncateString">Truncate String</label>
+					<input name="truncateString" type="text" value="&#8230;" placeholder="Truncate String" />
+
+					<label for="showString">"Show" Text</label>
+					<input name="showString" type="text" value="more" placeholder="'Show' Text"/>
+
+					<label for="hideString">"Hide" Text</label>
+					<input name="hideString" type="text" value="less" placeholder="'Hide' Text"/>
+				</form>
+			</aside>
+		</main>
+		<script src="../label.js" type="text/javascript"></script>
+	</body>
+</html>
