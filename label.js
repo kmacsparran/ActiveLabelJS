@@ -6,7 +6,9 @@
  */
 var LabelOptions = {
 	parentElementID: "demoForm",
-	activeClassName: "al",
+	activeClassName: "active",
+	defaultClass: "invisible",
+	toggleClass: "visible",
 	transitionInterval: 300
 };
 
@@ -21,14 +23,18 @@ var Label = function (control, context) {
 	// find the label element associated with this control
 	this.label = this.getLabel();
 	
-	/* 
-	 * if the control already has a value assigned, 
-	 * assign the appropriate clssname to display the control's label element.
-	 */
+	// setup for css animations
+	this.addClass(LabelOptions.activeClassName);
+	
+	// apply default css styles
+	this.addClass(LabelOptions.defaultClass);
+	
+	// if the control already has a value assigned, 
 	if (this.control.value.length > 0) {
-		this.label.className = LabelOptions.activeClassName;
+		// display the control's label element.
+		this.addClass(LabelOptions.toggleClass);
 	}
-
+	
 	// apply eventlisteners
 	this.activate();
 	
@@ -52,45 +58,34 @@ Label.prototype.getLabel = function() {
 	while (i++ < labels);
 };
 Label.prototype.showLabel = function() {
-	// this.setProp(this.label, "className", LabelOptions.activeClassName);
 	if (this.control.value.length > 0) {
-		// this.label.className = LabelOptions.activeClassName;
-		this.addClass();
+		this.addClass(LabelOptions.toggleClass);
 	}
 	else {
-		// this.label.className = LabelOptions.activeClassName;
-		this.removClass();
+		this.removClass(LabelOptions.toggleClass);
 	}
 };
-Label.prototype.addClass = function () {
-	var currentClass = this.label.className || [];
+Label.prototype.addClass = function (name) {
+	var currentClass = (this.label.className || "").split(" "),
+		name = name || LabelOptions.activeClassName;
 	
-	if (currentClass.indexOf(LabelOptions.activeClassName) < 0) {
-		this.label.className = LabelOptions.activeClassName;
+	if (currentClass.indexOf(name) < 0) {
+		this.label.className = (currentClass.concat(name)).join(" ").trim();
 	}
 };
-Label.prototype.removClass = function () {
-	var currentClass = this.label.className || [];
+Label.prototype.removClass = function (name) {
+	var currentClass = (this.label.className || "").split(" "),
+		name = name || LabelOptions.activeClassName,
+		classIndex = currentClass.indexOf(name);
 	
-	console.log(currentClass);
-	console.log(currentClass.indexOf(LabelOptions.activeClassName));
-	
-	// use a regular expression to remove the classname if it has been set already
-	if (currentClass.indexOf(LabelOptions.activeClassName) > -1) {
-		this.label.className = "";
+	if (classIndex > -1) {
+		currentClass.splice(classIndex, 1);
+		this.label.className = currentClass.join(" ").trim();
 	}
-	
 };
 Label.prototype.activate = function () {
-	console.log("add listeners");
-	
 	this.control.addEventListener("input", this.showLabel.bind(this));
 	this.control.addEventListener("change", this.showLabel.bind(this));
-
-	// add eventhandlers to each pair:
-	// if value is not "", hide placeholder, and fade the label in.
-	// if value is "", show the placeholder, and hide the label.
-	// on focus, hide the placeholder (should be automatic), and fade in the label.
 };
 
 (function (window, document, undefined) {

@@ -25,7 +25,9 @@ body {
   vertical-align: top;
   text-align: left;
   background-color: rgba(8, 8, 8, 0.5);
-  border: 1px solid #d4d4d4;
+  border-width: 1px;
+  border-styel: solid;
+  border-color: #d4d4d4;
   border-radius: 0.5em;
   border-spacing: 1em;
   padding: 1em;
@@ -47,7 +49,7 @@ form {
 }
 
 label {
-  display: none;
+  font-size: 0.75em;
   position: absolute;
   width: auto;
   left: 0;
@@ -56,13 +58,14 @@ label {
 input {
   display: block;
   font-size: 100%;
-  /* margin: $height*9 0; */
   margin: 1em 0 2.25em;
   padding: 0.5em;
   border-width: 0;
   border-collapse: collapse;
   border-radius: 0.5em;
   width: 10em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -80,8 +83,21 @@ section p:last-child {
 }
 
 /* End document structural sections */
-.al {
-  display: block;
-  font-size: 0.75em;
+.active {
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, transform 1s;
+}
+
+.invisible {
+  opacity: 0;
+  -webkit-transform: translatey(0);
+  -ms-transform: translatey(0);
+  transform: translatey(0);
+}
+
+.visible {
+  opacity: 1;
   -webkit-transform: translatey(-1.25em);
+  -ms-transform: translatey(-1.25em);
+  transform: translatey(-1.25em);
 }

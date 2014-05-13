@@ -4,6 +4,8 @@ bin-debug/
 bin-release/
 
 # Other files and folders
-.settings/
-.codio
-.sass-cache/
+/.settings/
+/.sass-cache/
+/node_modules/
+/.codio
+/std.css

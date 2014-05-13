@@ -53,20 +53,28 @@ body {
 	vertical-align: top;
 	text-align: left;
 	background-color: $transpdkgrey; 
-	border: 1px solid $ltgrey; 
-	border-radius: $radius; 
-	border-spacing: $spacing;
+	border: {
+		width: 1px;
+		styel: solid;
+		color: $ltgrey; 
+		radius: $radius; 
+		spacing: $spacing;
+	}
 	padding: 1em;
 }
 .features { display: none; }
 main { display: table; border-spacing: $spacing; }
 aside {}
 form { position: relative; padding: 0; font-size: 100%; }
-label { display: none; position: absolute; width: auto; left: 0; }
+label { 
+	font-size: 1-$height; 
+	position: absolute; 
+	width: auto; 
+	left: 0;
+}
 input { 
 	display: block; 
 	font-size: 100%;
-	/* margin: $height*9 0; */
 	margin: 1em 0 $height*9;
 	padding: $radius;
 	border: {
@@ -88,8 +96,14 @@ section p:last-child {
 /* End document structural sections */
 
 
-.al {
-	display: block;
-	font-size: 1-$height; 
-	-webkit-transform: translatey(-$height*5);
+.active {
+	transition: opacity 1s, transform 1s;
+}
+.invisible {
+	opacity: 0;
+	transform: translatey(0);
+}
+.visible {
+	opacity: 1;
+	transform: translatey(-$height*5);
 }
