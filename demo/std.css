@@ -26,7 +26,7 @@ body {
   text-align: left;
   background-color: rgba(8, 8, 8, 0.5);
   border-width: 1px;
-  border-styel: solid;
+  border-style: solid;
   border-color: #d4d4d4;
   border-radius: 0.5em;
   border-spacing: 1em;
@@ -84,8 +84,8 @@ section p:last-child {
 
 /* End document structural sections */
 .active {
-  -webkit-transition: opacity 1s, -webkit-transform 1s;
-  transition: opacity 1s, transform 1s;
+  -webkit-transition: z-index 1s, opacity 1s, -webkit-transform 1s;
+  transition: z-index 1s, opacity 1s, transform 1s;
 }
 
 .invisible {
@@ -93,6 +93,7 @@ section p:last-child {
   -webkit-transform: translatey(0);
   -ms-transform: translatey(0);
   transform: translatey(0);
+  z-index: -1;
 }
 
 .visible {
@@ -100,4 +101,5 @@ section p:last-child {
   -webkit-transform: translatey(-1.25em);
   -ms-transform: translatey(-1.25em);
   transform: translatey(-1.25em);
+  z-index: 1;
 }

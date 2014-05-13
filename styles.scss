@@ -55,7 +55,7 @@ body {
 	background-color: $transpdkgrey; 
 	border: {
 		width: 1px;
-		styel: solid;
+		style: solid;
 		color: $ltgrey; 
 		radius: $radius; 
 		spacing: $spacing;
@@ -97,13 +97,15 @@ section p:last-child {
 
 
 .active {
-	transition: opacity 1s, transform 1s;
+	transition: z-index 1s, opacity 1s, transform 1s;
 }
 .invisible {
 	opacity: 0;
 	transform: translatey(0);
+	z-index: -1;
 }
 .visible {
 	opacity: 1;
 	transform: translatey(-$height*5);
+	z-index: 1;
 }

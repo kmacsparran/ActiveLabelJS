@@ -9,7 +9,9 @@
     "grunt-cli": "~0.1.13",
     "grunt-contrib-watch": "~0.6.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "grunt-contrib-sass": "~0.7.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
