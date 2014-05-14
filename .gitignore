@@ -1,11 +1,16 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
+# Project settings
+/.codio
+/.settings/
+
+# Test and Distribution Folders
+/dist
+/test
 
 # Other files and folders
-/.settings/
 /.sass-cache/
 /node_modules/
-/.codio
-/std.css
+
+# Generated files
+/example/activelabel.js
+/example/std.css
+/src/styles/css/
