@@ -1,7 +1,14 @@
 {
-  "name": "ActiveLabelJS",
-  "version": "1.0.0",
+  "name": "activelabel",
+  "title": "ActiveLabelJS",
   "description": "\"Conceptually based on 'Float Label Pattern' by Matt D. Smith (http://mattdsmith.com/float-label-pattern/).\"",
+  "version": "0.1.0",
+  "homepage": "https://github.com/kmacsparran/ActiveLabelJS",
+  "company": "TXW LLC",
+  "author": {
+    "name": "Kenneth MacSparran",
+    "email": "kenneth.macsparran@gmail.com"
+  },
   "main": "Gruntfile.js",
   "dependencies": {
     "grunt": "~0.4.5",
@@ -10,7 +17,12 @@
     "grunt-contrib-watch": "~0.6.1"
   },
   "devDependencies": {
-    "grunt-contrib-sass": "~0.7.3"
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "intern": "~1.7.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,15 +31,18 @@
     "type": "git",
     "url": "https://github.com/kmacsparran/ActiveLabelJS"
   },
+  "bugs": {
+    "url": "https://github.com/kmacsparran/ActiveLabelJS/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/kmacsparran/ActiveLabelJS/blob/master/LICENSE"
+    }
+  ],
   "keywords": [
     "Float",
     "Label",
     "Pattern"
-  ],
-  "author": "Kenneth MacSparran",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kmacsparran/ActiveLabelJS/issues"
-  },
-  "homepage": "https://github.com/kmacsparran/ActiveLabelJS"
+  ]
 }
