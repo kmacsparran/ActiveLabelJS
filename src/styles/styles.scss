@@ -1,0 +1,111 @@
+/*
+    Document   : styles.scss
+    Created on : 2014-05-12 06:34 AM
+    Author     : kmacsparran
+    Description:
+    Purpose of the stylesheet follows.
+*/
+
+$grey: #555;
+$dkgrey: darken($grey, 30%);
+$mdgrey: lighten($dkgrey, 40%);
+$ltgrey: lighten($mdgrey, 40%);
+
+$focused: #ff0;
+
+$transpdkgrey: rgba(red($dkgrey), green($dkgrey), blue($dkgrey), 0.5);
+
+/* Begin font styles */
+$dfamily: "Open Sans", arial, sans-serif;
+$dstyle: normal;
+$dweight: 100;
+$dsize: 100%;
+$dlineheight: 1.2;
+
+@mixin set-font ($ff, $fv, $fw, $fs, $lh)
+{
+	font: {
+		family: $ff;
+		style: $fv;
+		weight: $fw;
+		size: $fs;
+	}
+	line-height: $lh;
+} 
+/* End font styles */
+
+$height: .25em;
+$spacing: 1em;
+$radius: $spacing/2;
+
+/* Begin document defaults */
+body {
+	@include set-font($dfamily, $dstyle, $dweight, $dsize, $dlineheight);
+	color: $ltgrey;
+	background: $mdgrey;
+}
+/* End document defaults */
+
+
+/* Begin document structural sections */
+.cell {
+	display: table-cell;
+	vertical-align: top;
+	text-align: left;
+	background-color: $transpdkgrey; 
+	border: {
+		width: 1px;
+		style: solid;
+		color: $ltgrey; 
+		radius: $radius; 
+		spacing: $spacing;
+	}
+	padding: 1em;
+}
+.features { display: none; }
+main { display: table; border-spacing: $spacing; }
+aside {}
+form { position: relative; padding: 0; font-size: 100%; }
+label { 
+	font-size: 1-$height; 
+	position: absolute; 
+	width: auto; 
+	left: 0;
+}
+input { 
+	display: block; 
+	font-size: 100%;
+	margin: 1em 0 $height*9;
+	padding: $radius;
+	border: {
+		width: 0;
+		collapse: collapse; 
+		radius: $radius;
+	}
+	width: 10em;
+	box-sizing: border-box;
+}
+input:last-of-type { margin-bottom: 0; }
+section p { 
+	margin: 0; 
+	padding: 0 0 $spacing; 
+}
+section p:last-child { 
+	padding-bottom: 0; 
+}
+/* End document structural sections */
+
+
+.active {
+	transition: z-index 1s, opacity 1s, transform 1s;
+}
+.invisible {
+	opacity: 0;
+	transform: translatey(0);
+	z-index: -1;
+}
+.visible {
+	opacity: 1;
+	transform: translatey(-$height*5);
+	z-index: 1;
+}

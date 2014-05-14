@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>ActiveLabelJS Demo</title>
+		<link href="std.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<header>
+			<h1>Demo</h1>
+		</header>
+		<main>
+			<aside class="cell">
+				<form id="activeform">
+					<label for="maxLines">Max Lines</label>
+					<input name="maxLines" type="number" min="1" max="15" value="" placeholder="Max Lines" />
+
+					<label for="truncateString">Truncate String</label>
+					<input name="truncateString" type="text" value="&#8230;" placeholder="Truncate String" />
+
+					<label for="showString">"Show" Text</label>
+					<input name="showString" type="text" value="more" placeholder="'Show' Text"/>
+
+					<label for="hideString">"Hide" Text</label>
+					<input name="hideString" type="text" value="less" placeholder="'Hide' Text"/>
+				</form>
+			</aside>
+		</main>
+		<script src="activelabel.js" type="text/javascript"></script>
+		<script>
+			(function (window, document, undefined) {
+				var userForm = document.getElementById(LabelOptions.parentElementID),
+					labels = [],
+					elemArray = userForm.getElementsByTagName("input"),
+					elems = elemArray.length - 1,
+					elem = undefined,
+					i = 0;
+
+				do {
+					elem = elemArray[i];
+
+					if (["button", "submit", "radio", "checkbox"].indexOf(elem["type"]) < 0) {
+						labels.push(new Label(elemArray[i], userForm));
+					}
+				}
+				while (i++ < elems);
+			})(window, document)
+		</script>
+	</body>
+</html>
