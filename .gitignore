@@ -2,8 +2,7 @@
 /.codio
 /.settings
 
-# Test and Distribution Folders
-/dist
+# Test Folder
 /test
 
 # Other files and folders
