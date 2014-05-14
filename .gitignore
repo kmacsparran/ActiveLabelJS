@@ -1,6 +1,6 @@
 # Project settings
 /.codio
-/.settings/
+/.settings
 
 # Test and Distribution Folders
 /dist
